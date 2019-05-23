@@ -1,4 +1,7 @@
 # RSCG_cpp
+This is made for c++11.
+
+
 This package can calculate the elements of the Green's function:
 
 ```math
