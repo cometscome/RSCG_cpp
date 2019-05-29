@@ -37,4 +37,22 @@ class RSCG{
         _maximumsteps = itemax;
     };
 
+    void set_matvec(std::function<vector <complex <double> >(vector <complex <double> >&)> f){
+        matvec = f;
+    };
+
+    void set_matvec(std::function<vector <double>(vector <double>&)> f){
+        matvec_dble = f;
+    };
+
+    void set_matvec(int n,std::function<vector <complex <double> >(vector <complex <double> >&)> f){
+        _n = n;
+        matvec = f;
+    };
+
+    void set_matvec(int n,std::function<vector <double>(vector <double>&)> f){
+        _n = n;
+        matvec_dble = f;
+    };
+
 };
