@@ -33,7 +33,15 @@ int main() {
     vec_z[0] = 0.2*1i;
     vec_z[1] = 4.0 + 0.5*1i;
     cout << vec_z[0] << std::endl;
-    vector<complex <double> > Gij = rscg->calc_greenfunction_realH(0,0,vec_z);
+    auto Gij = rscg->calc_greenfunction_realH(0,0,vec_z);
     cout << "RSCG" << Gij[0] << " exact: 1.12377 - 0.383299 I" << std::endl;
     cout << "RSCG" << Gij[1] << " exact: 0.0844022 - 0.0339264 I" <<std::endl;
+
+    vector <int> vec_i(2,0);
+    vec_i[1] = 2;
+    auto mat_Gij = rscg->calc_greenfunction_realH<2>(vec_i,0,vec_z);
+    cout << "RSCG" << mat_Gij[0][0] << " exact:   1.12377-0.383299 I" << std::endl;
+    cout << "RSCG" << mat_Gij[1][0] << " exact:  -0.682371+0.202684 I" << std::endl;
+    cout << "RSCG" << mat_Gij[0][1] << " exact:   0.0844022-0.0339264 I" << std::endl;
+    cout << "RSCG" << mat_Gij[1][1] << " exact:  -0.243277-0.0198593 I" << std::endl; 
 };
